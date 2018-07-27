@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.lang.Thread"/>
+    <fullyQualifiedTypeName name="org.apache.camel.dataformat.xmljson.XmlJsonDataFormat"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="org.apache.camel.impl.DefaultCamelContext"/>
+    <fullyQualifiedTypeName name="org.apache.camel.RoutesBuilder"/>
+    <fullyQualifiedTypeName name="org.apache.camel.dataformat.xstream.XStreamDataFormat"/>
+    <fullyQualifiedTypeName name="com.mysql.cj.jdbc.MysqlConnectionPoolDataSource"/>
+    <fullyQualifiedTypeName name="org.apache.camel.impl.SimpleRegistry"/>
+    <fullyQualifiedTypeName name="br.com.caelum.camel.Negociacao"/>
+    <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+    <fullyQualifiedTypeName name="org.apache.camel.Exchange"/>
+    <fullyQualifiedTypeName name="org.apache.camel.Processor"/>
+    <fullyQualifiedTypeName name="org.apache.camel.CamelContext"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="ch.qos.logback.core.Context"/>
+    <fullyQualifiedTypeName name="org.apache.activemq.camel.component.ActiveMQComponent"/>
+    <fullyQualifiedTypeName name="org.apache.camel.builder.RouteBuilder"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,12 @@
+{
+	"formato": "EBOOK",
+	"livro": {
+		"codigo": "SOA",
+		"nomeAutor": "Alexandre Saudate",
+		"titulo": "SOA aplicado: Integrando com web services e além",
+		"tituloCurto": "SOA",
+		"valorEbook": "29.90",
+		"valorImpresso": "59.90"
+	},
+	"quantidade": "1"
+}

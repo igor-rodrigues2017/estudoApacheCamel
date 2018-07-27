@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<newRoot>
+	<pedido>
+		<dataCompra>2013-12-05T18:21:07.529-02:00</dataCompra>
+		<id>2451256</id>
+		<itens>
+			<e>
+				<formato>EBOOK</formato>
+				<livro>
+					<codigo>ARQ</codigo>
+					<nomeAutor>Sergio Lopes, Paulo Silveira, Guilherme Silveira, Nico
+						Steppat, outros</nomeAutor>
+					<titulo>Introdução à Arquitetura e Design de Software</titulo>
+					<tituloCurto>Arquitetura Java</tituloCurto>
+					<valorEbook>29.90</valorEbook>
+					<valorImpresso>79.90</valorImpresso>
+				</livro>
+				<quantidade>1</quantidade>
+			</e>
+		</itens>
+		<pagamento>
+			<email-titular>edgar.b@abc.com</email-titular>
+			<status>CONFIRMADO</status>
+			<titular>Edgar Brião</titular>
+			<valor>29.90</valor>
+		</pagamento>
+	</pedido>
+</newRoot>

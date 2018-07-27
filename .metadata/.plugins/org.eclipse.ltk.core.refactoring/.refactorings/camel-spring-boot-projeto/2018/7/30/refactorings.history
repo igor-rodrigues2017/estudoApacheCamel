@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;br.com.caelum.camel.ProdutoServer&apos; to &apos;ProdutoService&apos;&#x0A;- Original project: &apos;camel-spring-boot-projeto&apos;&#x0A;- Original element: &apos;br.com.caelum.camel.ProdutoServer&apos;&#x0A;- Renamed element: &apos;br.com.caelum.camel.ProdutoService&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ProdutoServer&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;br.com.caelum.camel{ProdutoServer.java[ProdutoServer" matchStrategy="1" name="ProdutoService" qualified="false" references="true" similarDeclarations="false" stamp="1532732219498" textual="false" version="1.0"/>
+</session>

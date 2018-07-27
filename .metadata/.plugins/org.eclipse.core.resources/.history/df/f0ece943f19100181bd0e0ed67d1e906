@@ -1,0 +1,12 @@
+
+java.naming.factory.initial = org.apache.activemq.jndi.ActiveMQInitialContextFactory
+#Onde está rodando o MOM
+java.naming.provider.url = tcp://10.0.0.10:61616
+#java.naming.provider.url = vm://localhost 
+#o vm: faz com que o MOM rode numa virtual machine, iniciada pela aplicação java
+#Configuração do nome da fila
+#queue.[nome] = [nome fisico no activeMQ]
+queue.financeiro = fila.financeiro
+queue.DLQ = ActiveMQ.DLQ
+#Configuração do nome do Topic
+topic.loja = topico.loja

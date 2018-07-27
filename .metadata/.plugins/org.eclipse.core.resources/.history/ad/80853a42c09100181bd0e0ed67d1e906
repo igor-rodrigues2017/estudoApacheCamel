@@ -1,0 +1,65 @@
+package br.com.caelum.camel;
+
+import org.apache.camel.CamelContext;
+import org.apache.camel.Exchange;
+import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.dataformat.xmljson.XmlJsonDataFormat;
+import org.apache.camel.impl.DefaultCamelContext;
+
+public class RotaPedidos {
+
+	public static void main(String[] args) throws Exception {
+
+		CamelContext context = new DefaultCamelContext();
+
+		XmlJsonDataFormat xmlJsonFormat = new XmlJsonDataFormat();
+
+		context.addRoutes(new RouteBuilder() {
+
+			@Override
+			public void configure() throws Exception {
+				
+				errorHandler(deadLetterChannel("file:error"));
+				
+				from("file:pedidos?delay=5s&noop=true")
+					.log("${file:name}")
+					.routeId("rota-pedidos")
+					.delay(1000)
+					.to("validator:pedido.xsd")
+					.multicast()
+						.parallelProcessing()
+							.to("direct:http")
+							.to("direct:soap");
+				
+//					.to("seda:http")
+//					.to("seda:soap");
+				
+				from("direct:http")
+//				from("seda:http")
+					.routeId("rota-http")
+					.setProperty("pedidoId", xpath("/pedido/id/text()"))
+					.setProperty("clienteId", xpath("/pedido/pagamento/email-titular/text()"))
+					.split(xpath("/pedido/itens/item")).filter(xpath("/item/formato[text()='EBOOK']"))
+					.setProperty("ebookId", xpath("/item/livro/codigo/text()")).log("${id}").log("${body}")
+					.marshal(xmlJsonFormat)
+					.setHeader(Exchange.HTTP_METHOD, constant(org.apache.camel.component.http4.HttpMethods.GET))
+					.setHeader(Exchange.HTTP_QUERY, simple(
+								"clienteId=${exchangeProperty.clienteId}&pedidoId=${exchangeProperty.pedidoId}&ebookId=${exchangeProperty.ebookId}"))
+					.to("http4://localhost:8080/webservices/ebook/item");
+				
+				from("direct:soap")
+//				from("seda:soap")
+					.routeId("rota-soap")
+					.to("xslt:pedido-para-soap.xslt")
+					.log("Resultado do Template: ${body}")
+					.setHeader(Exchange.CONTENT_TYPE, constant("text/xml")) //enviando um xml no post
+					.to("http4://localhost:8080/webservices/financeiro");
+			}
+
+		});
+
+		context.start();
+		Thread.sleep(20000);
+		context.stop();
+	}
+}

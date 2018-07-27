@@ -1,0 +1,50 @@
+package br.com.caelum.camel;
+
+import org.apache.camel.CamelContext;
+import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.dataformat.xstream.XStreamDataFormat;
+import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.camel.impl.SimpleRegistry;
+
+import com.mysql.cj.jdbc.MysqlConnectionPoolDataSource;
+import com.thoughtworks.xstream.XStream;
+
+public class ExercícioRota {
+	
+	private static MysqlConnectionPoolDataSource criaDataSource() {
+		MysqlConnectionPoolDataSource dataSource = new MysqlConnectionPoolDataSource();
+		dataSource.setDatabaseName("camel");
+		dataSource.setServerName("localhost");
+		dataSource.setPort(3306);
+		dataSource.setUser("root");
+		dataSource.setPassword("");
+		return dataSource;
+	}
+
+	public static void main(String[] args) throws Exception {
+		SimpleRegistry registry = new SimpleRegistry();
+		registry.put("mysql", criaDataSource());
+		CamelContext context = new DefaultCamelContext(registry); //construtor recebe um registro
+		final XStream xStream = new XStream();
+		xStream.alias("negociacao", Negociacao.class);
+		
+		context.addRoutes(new RouteBuilder() {
+
+			@Override
+			public void configure() throws Exception {
+				from("timer://negociacoes?fixedRate=true&delay=1s&period=360s")
+						.to("http4://argentumws.caelum.com.br/negociacoes")
+						.convertBodyTo(String.class)
+						.log("${body}")
+						.unmarshal(new XStreamDataFormat(xStream))
+						.split(body())
+						.log("${body}")
+						.end(); // só deixa explícito que é o fim da rota
+			}
+		});
+		context.start();
+		Thread.sleep(20000);
+		context.stop();
+	}
+
+}

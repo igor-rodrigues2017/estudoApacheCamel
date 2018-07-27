@@ -1,0 +1,17 @@
+package br.com.caelum.camel;
+
+import org.apache.camel.CamelContext;
+import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.impl.DefaultCamelContext;
+
+public class ExercícioRota {
+	
+	public static void main(String[] args) {
+		CamelContext context = new DefaultCamelContext();
+		
+		context.addRoutes(new RouteBuilder() {
+			
+		});
+	}
+	
+}

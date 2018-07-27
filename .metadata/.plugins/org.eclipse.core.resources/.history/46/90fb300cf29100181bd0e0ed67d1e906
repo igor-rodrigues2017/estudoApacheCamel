@@ -1,0 +1,10 @@
+#Hibernate
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=update
+
+#Server
+server.servlet.context-path=/cattlefarm
+
+#Config JSP
+spring.mvc.view.prefix=/WEB-INF/views/
+spring.mvc.view.suffix=.jsp

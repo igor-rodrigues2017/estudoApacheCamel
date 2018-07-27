@@ -1,0 +1,36 @@
+{
+	"dataCompra": "2013-12-05T18:10:07.963-02:00",
+	"id": "4298608",
+	"itens": [
+		{
+			"formato": "IMPRESSO",
+			"livro": {
+				"codigo": "TDD",
+				"nomeAutor": "Mauricio Aniche",
+				"titulo": "Test-Driven Development: Teste e Design no Mundo Real\t\t\t\t",
+				"tituloCurto": "TDD",
+				"valorEbook": "29.90",
+				"valorImpresso": "59.90"
+			},
+			"quantidade": "1"
+		},
+		{
+			"formato": "EBOOK",
+			"livro": {
+				"codigo": "ARQ",
+				"nomeAutor": "Sergio Lopes, Paulo Silveira, Guilherme Silveira, Nico\t\t\t\t\tSteppat, outros",
+				"titulo": "Introdução à Arquitetura e Design de Software",
+				"tituloCurto": "Arquitetura Java",
+				"valorEbook": "29.90",
+				"valorImpresso": "79.90"
+			},
+			"quantidade": "1"
+		}
+	],
+	"pagamento": {
+		"email-titular": "tatgran@zxc.com",
+		"status": "CONFIRMADO",
+		"titular": "Tatiana Geraldina Granjeiro",
+		"valor": "89.80"
+	}
+}
